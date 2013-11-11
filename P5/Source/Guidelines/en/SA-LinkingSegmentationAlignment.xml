@@ -866,7 +866,11 @@ specified point (<ptr target="#SATSSR"/>)</item>
 <item>addresses a range which matches a specified string within a node
 (<ptr target="#SATSMA"/>)</item>
 </list>
+<<<<<<< HEAD
 </p>
+=======
+     </p>
+>>>>>>> Changed references to xpath1() to xpath().
 <p>The <name type="xpscheme">xpath()</name> scheme refers to the
 existing XPath specification which is adopted without
 modification or extension.
@@ -1982,6 +1986,7 @@ needed. Any item within the text that can be pointed to using the
 various pointer schemes discussed in this chapter may be used, not
 simply those which rely on the existence of an <att>xml:id</att>
 attribute. Suppose our example had been
+<<<<<<< HEAD
 more lightly tagged, as follows:
   <egXML xml:lang="mul" xmlns="http://www.tei-c.org/ns/Examples" source="#SA-BIBL-2">
     <div xml:id="E98" xml:lang="en" type="lesson">
@@ -1997,6 +2002,20 @@ more lightly tagged, as follows:
       <ab>ubi Studiosus,</ab>
     </div>
   </egXML></p>
+=======
+more lightly tagged, as follows:<egXML xml:lang="mul" xmlns="http://www.tei-c.org/ns/Examples" source="#SA-BIBL-2"><div xml:id="E98" xml:lang="en" type="lesson">
+   <head>The Study</head>
+<ab>The Study</ab>
+<ab>is a place</ab>
+<ab>where a Student,</ab>
+  </div>
+<div xml:id="L98" xml:lang="la" type="lesson">
+   <head>Muséum</head>
+<ab>Museum</ab>
+<ab>est locus</ab>
+<ab>ubi Studiosus,</ab>
+</div></egXML></p>
+>>>>>>> Changed references to xpath1() to xpath().
 <p>To express the same alignment mentioned above, we could use an
 XPath expression to identify the required <gi>seg</gi> elements:
   <egXML xml:lang="und" xmlns="http://www.tei-c.org/ns/Examples">
