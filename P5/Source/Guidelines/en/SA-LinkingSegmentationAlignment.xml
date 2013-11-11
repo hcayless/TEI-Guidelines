@@ -766,67 +766,6 @@ chapter and elsewhere in these Guidelines. </p>
       
     </div>
     
-    <div type="div3" xml:id="SAES">
-<head>W3C element() Scheme</head>
-<p>If elements are not directly addressable by means of an identifier,
-because no identifier was originally given to them and the document cannot be
-modified to add one, they may still be pointed to by means of their position in the XML
-element tree. This method of pointing uses the <name type="xpscheme">element()</name> scheme defined by the World Wide Web
-Consortium (<ref target="#XPTRELEM">Grosso et al, 2003</ref>). In this
-scheme, an element may be identified by stepwise navigation using a
-slash-separated list of child element numbers. For each step the
-integer <code>n</code> locates the <hi>n</hi>th child element of the
-previously located element. Thus a pointer such as <code>&lt;ptr
-target="foo.xml#element(/1/4)"/&gt;</code> indicates the fourth child
-element starting from the root element of the document indicated by
-the URI <ident type="file">foo.xml</ident>.  </p>
-<p>For example, the following pointer selects
-one of Shakespeare's most famous lines:
-  <egXML xml:lang="und" xmlns="http://www.tei-c.org/ns/Examples"><ref target="http://www.cs.mu.oz.au/621/2003project/hamlet.xml#element(/1/8/2/25/2)">2B|^2B…</ref></egXML>
-<!--<note type="cit" resp="#sdb">Jon Bosak's XMLification of Moby
-Lexical Tools' plain text version of Hamlet. As of <date
-value="2004-12-22"/>, the node xpath1(/*[1]/*[8]/*[2]/*[25]/*[2])
-(or, perhaps more usefully,
-xpath1(/PLAY[1]/ACT[3]/SCENE[1]/SPEECH[19]/LINE[1])) selects the
-element <q><![CDATA[<LINE>To be, or not to be: that is the
-question:</LINE>]]></q>.</note> -->
-The  URI  in this example references an XML resource assumed to be
-available via the HTTP protocol on the Web; within
-that file, the specified <name type="xpscheme">element()</name>
-scheme is used to select  <q>the first (root-level)  element's 8th
-child element's 2nd child element's 25th child element's 2nd
-child element</q>. This is equivalent to the XPath
-specification <code>/*[1]/*[8]/*[2]/*[25]/*[2]</code>.</p>
-<p>Rather than specifying a full path starting from the document
-root, it is also possible in this pointer scheme to specify as
-starting point any element which carries a value for its
-<att>xml:id</att> attribute, supplying a unique identifier for
-it.  In this case the identifier is prefixed to the location
-path. For example, we can point more economically to the same
-line of Hamlet in a different digital version of the play which
-provides identifiers for the individual scenes: <egXML xml:lang="und" xmlns="http://www.tei-c.org/ns/Examples"><div xml:base="/Users/martin/Documents/c5/namelessShakespeare.xml"><p><ptr target="#element(sha-ham301/22/2)"/></p></div></egXML> Here the
-identifier <val>sha-ham301</val> is the identifier for the
-<gi>div</gi> element containing Act III, Scene I of Hamlet. The
-second child of the 22nd child of this <gi>div</gi> element
-contains the desired <gi>l</gi> element. This is equivalent to
-the XPath specification
-<code>id(sha-ham301)/*[22]/*[2]</code>.</p>
-<p>As noted above, we could also point directly to this line if it had an
-identifier of its own. In another digital edition of Shakespeare,
-based on the first folio, each
-line is given an identifier based on its <soCalled>through line
-number</soCalled>. Our pointer to this line can now be represented
-simply as <tag>ptr target="#element(Ham01245)"/</tag>, or even more
-simply as <tag>ptr target="#Ham01245"/</tag>. The notation <tag>ptr
-target="#xxx"/</tag> is a convenient abbreviation for <tag>ptr
-target="#element(xxx)"/</tag>. This method requires, of course, that
-the <soCalled>Through Line Number</soCalled> is supplied as the value of an
-<att>xml:id</att> attribute on each line, and must therefore be unique
-within each document. In
-section <ptr target="#SACR"/> we discuss a method of pointing to the
-line which does not have this requirement.</p> 
-
-    </div>
 <div type="div3" xml:id="SATS">
 <head>TEI XPointer Schemes</head>
 
