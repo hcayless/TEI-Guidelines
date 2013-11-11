@@ -20,7 +20,7 @@ provides for the following common requirements:
     <item>to link disparate elements 
     using the <att>xml:id</att> attribute (section <ptr target="#SAPT"/>);</item>
     <item>to link disparate elements without using the
-    <att>xml:id</att> attribute (sections <ptr target="#SAUR"/>, <ptr target="#SAES"/>, and <ptr target="#SATS"/>);</item>
+    <att>xml:id</att> attribute (sections <ptr target="#SAUR"/> and <ptr target="#SATS"/>);</item>
     <item>to segment text into elements convenient for
     the encoder and to mark arbitrary points within documents (section
     <ptr target="#SASE"/>);</item>
@@ -776,13 +776,10 @@ XPointer Framework (<ref target="#XPTRFMWK">Grosso et al
 2003</ref>). This framework permits the definition of many other named
 addressing methods, each of which is known as an <term>XPointer
 Scheme</term>. The W3C has predefined a set of such schemes, and
-maintains a register for their expansion. The <name
-type="xpscheme">element()</name> scheme described above is one such
-scheme, defined by the W3C, and widely implemented by XML processing
-systems.</p>
+maintains a register for their expansion. </p>
 
 <p>Another important scheme, also defined by the W3C, and recommended
-by these Guidelines is the <name type="xpscheme">xpath1()</name> pointer
+by these Guidelines is the <name type="xpscheme">xpath()</name> pointer
 scheme, which allows for any part of an XML structure to be selected
 using the syntax defined by the XPath specification. This is further
 discussed below, <ptr target="#SATSXP"/>. These Guidelines also define
@@ -864,7 +861,7 @@ kinds of object:
 
      <p>The TEI has registered the following five pointer schemes:
 <list type="gloss">
-<label><name type="xpscheme">xpath1()</name></label>
+<label><name type="xpscheme">xpath()</name></label>
 <item>Addresses a node or nodeset using the XPath syntax. (<ptr target="#SATSXP"/>)</item>
 <!-- XPath2 deleted until
 standardized <name type="xpscheme">XPath2()</name>, --> 
@@ -882,7 +879,7 @@ specified point (<ptr target="#SATSSR"/>)</item>
 (<ptr target="#SATSMA"/>)</item>
 </list>
      </p>
-<p>The <name type="xpscheme">xpath1()</name> scheme refers to the
+<p>The <name type="xpscheme">xpath()</name> scheme refers to the
 existing XPath specification which is adopted without
 modification or extension.
 </p>
@@ -895,13 +892,13 @@ towards revising this draft or issuing it as a recommendation. </p>
 
 <div type="div4" xml:id="SATSXP">
     <head>xpath1(Expr)</head>
-    <p>The <name type="xpscheme">xpath1()</name> scheme locates a node
+    <p>The <name type="xpscheme">xpath()</name> scheme locates a node
     or node set within an XML Information Set. The single argument
     <rs>Expr</rs> is an XPath <term>Expr</term> as defined in the <ref
     target="http://www.w3.org/TR/XPath#NT-Expr">W3C XPath 1
     Recommendation</ref>. The node or node set resulting from
     evaluating the XPath is the reference of an address using the
-    <name type="xpscheme">xpath1()</name> scheme. For example, the
+    <name type="xpscheme">xpath()</name> scheme. For example, the
     following example selects the first paragraph of the <gi
     scheme="extreme">ftnote</gi> element with <att
     scheme="extreme">id</att> of <val>fn6</val> of a paper that
@@ -932,24 +929,13 @@ towards revising this draft or issuing it as a recommendation. </p>
   selecting an XML element or its contents where an
   <att>xml:id</att> is not present. The ability to use element
   names and attribute names and
-  values makes <name type="xpscheme">xpath1()</name> pointers more
+  values makes <name type="xpscheme">xpath()</name> pointers more
   robust than the other mechanisms discussed in this section 
 <!--<name type="xpscheme">element()</name> pointers,-->
   even if the designated document changes. For durability in the
   presence of editing, use of <att>xml:id</att> is always
   recommended when possible.</p>
     </div>
- <!-- XPath2 deleted for the time being, as it is not standardized
- <div4 type="subsubsection" xml:id="SATSXP2">
-    <head>XPath2(path)</head>
-    <p>The <name type="xpscheme">XPath2()</name> scheme locates a node within
-an XML Information Set. The single argument
-<rs>path</rs> is an XPath 2.0 path as defined in the
-<ref target="http://www.w3.org/TR/XPath20/">W3C XPath 2
-  Recommendation</ref>. The results of the XPath2() pointer scheme are treated exactly as the
-  results of an <name type="xpscheme">xpath1()</name> pointer scheme. </p>
-  </div4> -->
-<!-- examples needed -->
 
    <div type="div4" xml:id="SATSLR">
     <head>left() and right()</head>
@@ -2088,9 +2074,7 @@ to the original text, some form of stand-off markup will be
 needed. Any item within the text that can be pointed to using the
 various pointer schemes discussed in this chapter may be used, not
 simply those which rely on the existence of an <att>xml:id</att>
-attribute. For example, if the segments in our example did not have
-identifiers, they could still be addressed using the notation
-introduced in <ptr target="#SAES"/> above. Suppose our example had been
+attribute. Suppose our example had been
 more lightly tagged, as follows:<egXML xml:lang="mul" xmlns="http://www.tei-c.org/ns/Examples" source="#SA-BIBL-2"><div xml:id="E98" xml:lang="en" type="lesson">
    <head>The Study</head>
 <ab>The Study</ab>
@@ -2643,8 +2627,8 @@ to specify a
 <att>who</att> value for them.</p>
 <p>Suppose now that <att>xml:id</att> attributes, for whatever
 reasons, are not available. Then <gi>ptr</gi> elements may be created
-using any of the methods described in sections <ptr target="#SAES"/>
-or <ptr target="#SATS"/>. The <att>xml:id</att> attributes of
+using any of the methods described in section <ptr target="#SATS"/>. 
+The <att>xml:id</att> attributes of
 <emph>these</emph> elements may now be specified by the
 <att>target</att> attribute on the <gi>join</gi> elements.
 <egXML xmlns="http://www.tei-c.org/ns/Examples" source="#SA-eg-04"><text>
@@ -3155,23 +3139,6 @@ new source may be a plain text document</item>
 	  alternative content to be used when the external resource
 	  cannot be fetched for some reason. Its use is not however
 	  recommended for stand-off markup.</p>
- 
-	  <p>XInclude currently only requires support for one XPointer
-	  scheme, called <code>element()</code>. As described in <ptr target="#SAES"/>, the <code>element()</code> scheme can use
-	  either a bare name (denoting an element with a specific
-	  <att>xml:id</att> attribute) or a child sequence (a
-	  numerical sequence of slash-separated child numbers
-	  specifying a path in the XML tree whose final step selects a
-	  specific subtree of XML content) to specify its
-	  target. Another scheme, <code>xpointer()</code>, has not yet
-	  become a W3C recommendation, although it has been part of
-	  the XPointer drafts from the beginning. The
-	  <code>xpointer()</code> scheme and the TEI schemes defined
-	  earlier (see <ptr target="#SATS"/>) add the concepts of
-	  points and ranges, which can be used to specify sub-node
-	  fragments (e.g., a few words within a longer text node) or
-	  trans-node fragments (e.g., a segment of text that spans
-	  across different branches of the overall XML tree).</p>
 
   </div>
 <div type="div3" xml:id="SASOso">
