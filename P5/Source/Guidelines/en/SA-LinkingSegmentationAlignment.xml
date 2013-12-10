@@ -795,80 +795,69 @@ more formally the terminology used to define them. So far, we have
 discussed only ways of pointing at components of the XML information
 set node such as elements and attributes. However, there is often a
 need in text analysis to address additional types of location such as
-the <soCalled>point</soCalled> locations <emph>between</emph> nodes,
-and <soCalled>ranges</soCalled> that may arbitrarily cross the
+the <soCalled>point</soCalled> locations <emph>between</emph> <soCalled>nodes</soCalled>,
+and <soCalled>sequences</soCalled> that may arbitrarily cross the
 boundaries of nodes in a document.  The content of an XML document is
 organized sequentially as well as hierarchically, and it therefore
 makes sense to consider ranges of characters within it independently
-of the nodes to which they belong, for example when making a selection
-in a text editor. For processing purposes, such a range is best
-defined by the pair of points at its start and end.  It is often
-useful to think of pointer schemes as analogous to query functions
-that return nodes in the XML information set (the DOM tree) of an XML
-document, as in the case of the element and XPath pointer schemes
-discussed so far, but this is not invariably the case. A point is
-adjacent to one or two nodes, but is not a node itself, while a range
-may not even overlap with any complete node in the DOM tree.</p>
+of the nodes to which they belong. From the perspective of most of the pointer schemes discussed below, a TEI document is a 
+tree structure superimposed upon a character stream. Nodes are entities available only in the tree, while points are available only
+in the stream. For this reason, the schemes below that rely upon character positions cannot take tags into account. Similarly, XPath,
+being a method for locating nodes in the tree, treats those nodes as atomic, and is unable to address parts of nodes in their
+document context.</p>
 
 <p>The TEI pointer scheme thus distinguishes the following
 kinds of object:
 
 <list type="gloss">
   <label>Node</label>
-	<item>A node represents a single item in the XML information
-	set for a document. For pointing
+  <item>A node is an instance of one of the node kinds defined in
+  the <ref target="http://www.w3.org/TR/xpath20/#datamodel">XQuery 
+  1.0 and XPath 2.0 Data Model (Second Edition)</ref>. It represents 
+  a single item in the XML information 	set for a document. For pointing
 	purposes, the only nodes that are of interest are Text Nodes,
-	Element Nodes, and Attribute nodes.</item> <!-- why not
-	comments ? -->
-  <label>Node Set</label>
-	<item>A node set is a set of nodes in the XML information set
-	of a document. In TEI Pointing applications, node sets are
-	only allowed as the result of resolving a URI when multiple
-	URIs would have been allowed where it appears, i.e. in
-	attributes which are declared as permitting two or more <ident
-	type="datatype">data.pointer</ident> values as opposed to only
-	one. As the name <soCalled>set,</soCalled> implies, the
-	individual items in a node set are not ordered, and no
-	assumptions about relative ordering of items in a node set
-	should be made.</item>
+	Element Nodes, and Attribute nodes.</item> 
+  <label>Sequence</label>
+  <item>A Sequence follows the definition in the XPath 2.0 Data 
+  Model, with one alteration. A Sequence is an ordered collection
+  of zero or more items, where an item is either a node or a partial
+  text node. An an XPointer sequence must consist of nodes, as defined 
+  above, except for the first and last items in the sequence, which may be 
+  partial text nodes.
+  </item>
   <label>Point</label>
 	<item>A Point represents a point between nodes in a document.
 	Every point is adjacent to either characters or elements, and
 	never to another point. In fact, in the character
-	representation of an XML document, every position between data
-	characters, start-tags or end-tags is a point, and there are
-	no other points.  If one treats all character content as if it
-	were broken into single-character text-nodes, every point is
+	representation of an XML document, every position within text nodes or 
+	between start-tags or end-tags is a point, and there are
+	no other points. Note that points cannot occur within attributes, because
+	they are a function of document position and attribute nodes are un-ordered
+	by definition. If one treats all character content as if it
+	were broken into single-character text nodes, every point is
 	definable as either
-<list type="simple">
-<item> the point preceding a node, and if that node has a predecessor
-     in document order, then it is the same as the point following
-     that predecessor; or</item>
-<item> the point following a node, and if that node has a successor in
-     document order, then it is the same as the point preceding that
-     successor.
-</item></list>
-</item>
-  <label>Range</label>
-	<item>A Range is defined as the portion of a document between
-	two points. Since points may occur anywhere within the
-	document, ranges do not correspond directly to nodes or to node
-	sets. A range may overlap the contents of a node either
-	completely or partially.</item>
+  <list type="simple">
+    <item> the point preceding a node, and if that node has a predecessor
+         in document order, then it is the same as the point following
+         that predecessor; or</item>
+    <item> the point following a node, and if that node has a successor in
+         document order, then it is the same as the point preceding that
+         successor.
+    </item></list>
+  </item>
 </list>
 </p>
-
-
-     <p>The TEI has registered the following five pointer schemes:
+  
+     <p>The TEI recommends the following six pointer schemes:
 <list type="gloss">
 <label><name type="xpscheme">xpath()</name></label>
 <item>Addresses a node or nodeset using the XPath syntax. (<ptr target="#SATSXP"/>)</item>
-<!-- XPath2 deleted until
-standardized <name type="xpscheme">XPath2()</name>, --> 
 <label><name type="xpscheme">left()</name> and <name
-type="xpscheme">right()</name></label><item>addresses the point before
-(left) or after (right) a node or node set (<ptr target="#SATSLR"/>)
-</item>
+type="xpscheme">right()</name></label>
+<item>addresses the point before (left) or after (right) a node or node 
+set (<ptr target="#SATSLR"/>)</item>
+<label><name type="xpscheme">string-index()</name></label>
+<item>addresses a point inside a text node (<ptr target="#SATSSI"/></item>
 <label><name type="xpscheme">range()</name></label>
 <item>addresses the range between two points (<ptr target="#SATSRN"/>)</item>
 <label><name type="xpscheme">string-range()</name></label>
@@ -883,7 +872,7 @@ specified point (<ptr target="#SATSSR"/>)</item>
 existing XPath specification which is adopted without
 modification or extension.
 </p>
-<p>The other five schemes overlap in functionality with a W3C draft
+<p>The other six schemes overlap in functionality with a W3C draft
 specification known as the <name type="xpscheme">XPointer
 scheme</name> draft, but are individually much simpler. At the time of
 this writing, there is no current or scheduled activity at the W3C
@@ -891,31 +880,25 @@ towards revising this draft or issuing it as a recommendation. </p>
 </div>
 
 <div type="div4" xml:id="SATSXP">
-    <head>xpath1(Expr)</head>
+    <head>Sequence xpath(XPATH)</head>
     <p>The <name type="xpscheme">xpath()</name> scheme locates a node
-    or node set within an XML Information Set. The single argument
-    <rs>Expr</rs> is an XPath <term>Expr</term> as defined in the <ref
-    target="http://www.w3.org/TR/XPath#NT-Expr">W3C XPath 1
-    Recommendation</ref>. The node or node set resulting from
-    evaluating the XPath is the reference of an address using the
-    <name type="xpscheme">xpath()</name> scheme. For example, the
-    following example selects the first paragraph of the <gi
-    scheme="extreme">ftnote</gi> element with <att
-    scheme="extreme">id</att> of <val>fn6</val> of a paper that
-    discusses XPointers. <egXML xml:lang="und"
-    xmlns="http://www.tei-c.org/ns/Examples"><ptr
-    target="http://tinyurl.com/267z62/xml/2004/Thompson01/EML2004Thompson01.xml#xpath1(//ftnote[@id='fn6']/para[1])"/></egXML></p>
-	  <!-- I tried "xpath1(id(fn6)/para[1])" but it didn't work in
-	 my implementations of XPath (jEdit, oXygen, IIRC) -Syd
-	 -->
-  <p>When a URI reference is specified as the value of an attribute
-  declared as a single <ident type="datatype">data.pointer</ident>
-  value, the result must be a single node, and it is an error if the
-  result is a node set.  When the URI reference is specified as the
-  value of an attribute declared to permit two or more <ident
-  type="datatype">data.pointer</ident> values, each node in the node
-  set is treated as if it were the result of a separate URI
-  reference.</p>
+    within an XML Information Set. The single argument
+    <rs>XPATH</rs> is an XPath path expression, following the latest 
+    scheme adopted by the W3C (currently 
+    <ref target="http://www.w3.org/TR/xpath20/">XPath 2.0</ref>), that 
+    returns a sequence. XPaths returning atomic values (e.g. 
+    <name>substring()</name>) are illegal in the 
+    <name type="xpscheme">xpath()</name> scheme because they 
+    represent extracted values rather than locations in the source 
+    document. XPath expressions that address attribute nodes are only 
+    legal in the <name type="xpscheme">xpath()</name> scheme.
+      
+    <!-- TODO: add example -->
+      
+      
+      <!--The behavior of range schemes on XPaths returning multiple nodes is undefined.-->
+   </p>
+
   <p>When an XPath is interpreted by a TEI processor, the
   information set of the referenced document is interpreted
   without any additional information supplied by any schema
@@ -931,107 +914,63 @@ towards revising this draft or issuing it as a recommendation. </p>
   names and attribute names and
   values makes <name type="xpscheme">xpath()</name> pointers more
   robust than the other mechanisms discussed in this section 
-<!--<name type="xpscheme">element()</name> pointers,-->
   even if the designated document changes. For durability in the
   presence of editing, use of <att>xml:id</att> is always
   recommended when possible.</p>
     </div>
 
-   <div type="div4" xml:id="SATSLR">
-    <head>left() and right()</head>
-
-<p>The <name type="xpscheme">left()</name> (<name
-type="xpscheme">right()</name>) scheme locates the point immediately
-preceding (following) its argument, which is a fragment
-identifier. The single argument to <name
-type="xpscheme">left()</name> or <name type="xpscheme">right()</name>
-is treated like a fragment identifier itself, and must be a bare name
-or XPointer pointer.  The designation of this argument is resolved
-with respect to the base URI in effect for the <name
-type="xpscheme">left()</name> or <name type="xpscheme">right()</name>
-according to the normal rules.<note place="bottom">Like other XPointer
-schemes, bare names (i.e.  <att>xml:id</att> values) are
-permitted as arguments to all TEI-defined XPointer pointer
-scheme parameters.</note> Most pointer schemes return nodes or ranges
-rather than points; the possibilities for <name
-type="xpscheme">left()</name> and <name type="xpscheme">right()</name>
-pointer schemes are as follows:
-<list type="gloss">
-<label>A Node</label>
-  <item> When the fragment identifier resolves to a node, the
-  point designated is the point immediately preceding
-  (<name type="xpscheme">left()</name>) or following (<name type="xpscheme">right()</name>) the node.
-  </item>
-<label>A Node Set</label> 
-<item> When the fragment identifier resolves to a
-node set, the point designated is the point preceding the first
-element of the set (<name type="xpscheme">left()</name>) or following
-the last element of the set (<name type="xpscheme">right()</name>)</item>
- <label>A range</label> <item> When the fragment identifier 
-    resolves to a range, the point designated is the point
-    designating the start (<name type="xpscheme">left()</name>) or end (<name type="xpscheme">right()</name>) of the range.
-  </item>
-<label>A Point</label> <item> When the fragment identifier resolves to a
-point, that point is the result. The pointer schemes <name type="xpscheme">left()</name> and <name type="xpscheme">right()</name>
-make no change when given a point as argument.
-   </item>
-</list>
-</p>
-<p>The following example points to the spot immediately following the
-last character of the element found by walking down the document tree
-to the 6th child of the 3rd child of the 3rd child of the 1st child of
-the root element. In this case, the path takes us to a <gi
-scheme="extreme">postcode</gi> node which contains the string
-<q>20850</q>, so the point being pointed to is that following the
-  <q>0</q> character at the end of the element content. <egXML xml:lang="und"
-xmlns="http://www.tei-c.org/ns/Examples"><p
-xml:base="http://www.mulberrytech.com/Extreme/Proceedings/xml/2002/">
-<ptr
-target="Usdin01/EML2002Usdin01.xml#right(element(/1/1/3/3/6))"/></p></egXML></p>
-     </div>
+   <div type="div4" xml:id="SATSL">
+     <head><rs>Point</rs> left( IDREF | XPATH )</head>
+     <p>The <name type="xpscheme">left()</name> scheme locates the
+     point immediately preceding the node addressed by its argument,
+     which is either an <rs>XPATH</rs> as defined above or an
+     <rs>IDREF</rs>, the value of an <att>xml:id</att>
+     occurring in the document addressed by the base URI in effect
+     for the pointer.</p></div>
+  
+  <div type="div4" xml:id="SATSR">
+    <head><rs>Point</rs> right( IDREF | XPATH )</head>
+    <p>The <name type="xpscheme">right()</name> scheme locates the
+      point immediately following the node addressed by its argument.</p>
+  </div>
+    
+  <div type="div4" xml:id="SATSSI">
+    <head><rs>Point</rs> string-index( IDREF | XPATH, OFFSET )</head>
+    <p>The <name type="xpscheme">string-index()</name> scheme locates a
+    point with respect to the IDREF or XPATH parameter. The <rs>OFFSET</rs>
+    parameter is a positive, negative, or zero integer which determines 
+    the position of the <rs>point</rs>. An offset of 0 represents the 
+    position immediately before the first character in either the first 
+    text node descendant of the node addressed in the first parameter or the 
+    first following-sibling text node, if the addressed element contains 
+    no text node descendants.</p>
+  </div>
 
  <div type="div4" xml:id="SATSRN">
-    <head>range()</head>
-    <p>The <name type="xpscheme">range()</name> scheme locates a range
-    between two points in an XML information set. The two fragment
-    identifier arguments to <name type="xpscheme">range()</name>
-    locate the boundaries of the range. The arguments are XPointer
-    values themselves, and are resolved according to the rules
-    specified in the definition of the pointer scheme they use.<note
-    place="bottom">Bare names (<att>xml:id</att> values), like other
-    XPointer schemes, are permitted as <name
-    type="xpscheme">range()</name> parameters.</note> Most pointer
-    schemes return nodes or ranges rather than points; the
-    possibilities for <name type="xpscheme">range()</name> pointer
-    schemes are as follows:
-<list type="gloss">
-  <label>A Node</label>
-	<item>When the first argument resolves to a node, the
-	starting point of the range is the point immediately
-	preceding the node. When the second argument resolves to a
-	node, the ending point of the range is the point
-	immediately following the node. It is an error if the
-	ending point precedes the starting point of a
-	range.</item>
-  <label>A range</label>
-	<item>When the first argument resolves to a range
-	<rs>R</rs>, the starting point of the result range is
-	the same as the starting point of <rs>R</rs>. When
-	the second argument resolves to a range <rs>R</rs>, the
-	ending point of the result range is the ending point of
-	<rs>R</rs>.</item>
-  <label>A Point</label>
-	<item>When the first argument resolves to a point, that point is
-	the start of the range. When the second argument  resolves to a
-	point, that point is the end of the range.</item>
-</list>
-	  </p>
+  <head><rs>Sequence</rs> range( POINTER, POINTER [POINTER, POINTER ...])</head>
+   <p>The <name type="xpscheme">range()</name> scheme takes as parameters one 
+     or more pairs of <rs>POINTER</rs>s, which are each members of the set <rs>IDREF</rs>,
+     <rs>XPATH</rs>, <name type="xpscheme">left()</name>, 
+     <name type="xpscheme">right()</name>, or 
+     <name type="xpscheme">string-index()</name>. A <name type="xpscheme">range()</name> locates a (possibly 
+    non-contiguous) sequence beginning at the first POINTER parameter and ending at the last. If the POINTER locates 
+    a node (i.e. is an XPATH or IDREF), then that node is a member of the addressed sequence. The sequences addressed by range() pointers that
+   overlap, but do not entirely contain element content (e.g., a range() that begins inside an element and continues outside it,
+   but does not include both the start and end tags of that element) do not include those elements.</p>
+   <p><name type="xpscheme">Range()</name>s may address sequences of non-contiguous nodes. For example, a range() might text beginning before an <gi>app</gi>, encompassing 
+    the content of a single <gi>rdg</gi> and continuing after the <gi>app</gi>.</p>
  </div>
 
 <div type="div4" xml:id="SATSSR">
-    <head>string-range(fragmentIdentifier, offset [, length])</head>
+  <head><rs>Sequence</rs> string-range(IDREF | XPATH, OFFSET, LENGTH[, OFFSET, LENGTH ...])</head>
     <p>The <name type="xpscheme">string-range()</name> scheme
-    locates a range based on character positions.
+    locates a sequence based on character positions relative to
+    a node identified by the first parameter. The location of the 
+    beginning of the addressed sequence is determined precisely
+    as for <name type="xpscheme">string-index()</name>. The 
+    <rs>LENGTH</rs> parameter is a positive integer that denotes
+    the length of the string captured by the sequence. As with <name type="xpscheme">range()</name>, the addressed sequence may contain text nodes and/or elements. The <name type="xpscheme">string-range()</name> scheme, can accept multiple OFFSET, LENGTH pairs to address a non-contiguous sequence. Like string-index, string-range is not limited by the 
+      context of its first parameter. It may 
     <!-- what is it? -->
     While
     string-range endpoints are points adjacent to character
