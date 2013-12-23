@@ -126,14 +126,14 @@
         </xslt>
         <delete file="p5odds-examples.compiled.xml"/>
 
-      <exec executable="trang" failonerror="true">
+      <java jar="${trang}" failonerror="true" fork="true">
 	<arg value="p5odds.rng"/>
 	<arg value="p5odds.rnc"/>
-      </exec>
-      <exec executable="trang" failonerror="true">
+      </java>
+      <java jar="${trang}" failonerror="true" fork="true">
 	<arg value="p5odds-examples.rng"/>
 	<arg value="p5odds-examples.rnc"/>
-      </exec>
+      </java>
       </sequential>
   </target>
 

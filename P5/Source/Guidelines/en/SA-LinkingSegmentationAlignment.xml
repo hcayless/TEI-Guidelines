@@ -783,10 +783,10 @@ by these Guidelines is the <name type="xpscheme">xpath()</name> pointer
 scheme, which allows for any part of an XML structure to be selected
 using the syntax defined by the XPath specification. This is further
 discussed below, <ptr target="#SATSXP"/>. These Guidelines also define
-five other pointer schemes, which provide access to parts of an XML
+six other pointer schemes, which provide access to parts of an XML
 document such as points within  data content or stretches of data
 content. These additional TEI pointer schemes are defined in sections
-<ptr target="#SATSLR"/> to <ptr target="#SATSMA"/> below. </p>
+<ptr target="#SATSL"/> to <ptr target="#SATSMA"/> below. </p>
 
 <div type="div4" xml:id="SATSin"><head>Introduction to TEI Pointers</head>
 
@@ -825,30 +825,29 @@ kinds of object:
   above, except for the first and last items in the sequence, which may be 
   partial text nodes.
   </item>
+  <label>Text Stream</label>
+  <item>A Text Stream is the concatenation of the text nodes in a document
+  and behaves as though all tags had been removed. A text stream begins
+  at a reference node and encompasses all of the text inside that node (if any)
+  and all the text following it in document order. In XPath terms, this would
+  encompass all of the text nodes beginning at a particular node, and following 
+  it on the <ref target="http://www.w3.org/TR/xpath20/#axes">following axis</ref>.
+  </item>
   <label>Point</label>
-	<item>A Point represents a point between nodes in a document.
+	<item>A Point represents a dimensionless point between nodes in a document.
 	Every point is adjacent to either characters or elements, and
-	never to another point. In fact, in the character
-	representation of an XML document, every position within text nodes or 
-	between start-tags or end-tags is a point, and there are
-	no other points. Note that points cannot occur within attributes, because
-	they are a function of document position and attribute nodes are un-ordered
-	by definition. If one treats all character content as if it
-	were broken into single-character text nodes, every point is
-	definable as either
-  <list type="simple">
-    <item> the point preceding a node, and if that node has a predecessor
-         in document order, then it is the same as the point following
-         that predecessor; or</item>
-    <item> the point following a node, and if that node has a successor in
-         document order, then it is the same as the point preceding that
-         successor.
-    </item></list>
+	never to another point. Points can only be referenced in relation to an 
+	element or text node in the document (i.e. something addressable by either 
+	an XPath or a fragment identifier). Points occur either immediately before 
+	or after an element, or at a numbered position inside a text stream. 
+	Position zero in the stream would be immediately before the first character. 
+	Note that points cannot occur within attributes, because they are a function 
+	of document position and attribute nodes are by definition un-ordered. 
   </item>
 </list>
 </p>
   
-     <p>The TEI recommends the following six pointer schemes:
+     <p>The TEI recommends the following seven pointer schemes:
 <list type="gloss">
 <label><name type="xpscheme">xpath()</name></label>
 <item>Addresses a node or nodeset using the XPath syntax. (<ptr target="#SATSXP"/>)</item>
