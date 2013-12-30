@@ -898,7 +898,6 @@ legal in the <name type="xpscheme">xpath()</name> scheme.
 
 <!--The behavior of range schemes on XPaths returning multiple nodes is undefined.-->
 </p>
-
 <p>When an XPath is interpreted by a TEI processor, the
 information set of the referenced document is interpreted
 without any additional information supplied by any schema
