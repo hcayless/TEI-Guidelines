@@ -946,7 +946,7 @@ no text node descendants.</p>
 </div>
 
 <div type="div4" xml:id="SATSRN">
-<head><rs>Sequence</rs> range( POINTER, POINTER [POINTER, POINTER ...])</head>
+<head><rs>Sequence</rs> range( POINTER; POINTER [POINTER; POINTER ...])</head>
 <p>The <name type="xpscheme">range()</name> scheme takes as parameters one 
 or more pairs of <rs>POINTER</rs>s, which are each members of the set <rs>IDREF</rs>,
 <rs>XPATH</rs>, <name type="xpscheme">left()</name>, 
@@ -958,7 +958,10 @@ last. If the POINTER locates a node (i.e. is an XPATH or IDREF), then
 that node is a member of the addressed sequence. If a sequence addressed
 by a range pointer overlaps, but does not wholly contain, an element
 (i.e. it contains only the start but not the end tag or vice-versa),
-then that element is not part of the sequence.</p>
+then that element is not part of the sequence. POINTER parameters to
+<name type="xpscheme">range()</name>are delimited using the semicolon 
+character instead of commas. If a semicolon occurs inside a POINTER,
+it must be escape using the URI percent-encoding <code>%3B</code>.</p>
 <p><name type="xpscheme">Range()</name>s may address sequences of 
 non-contiguous nodes. For example, a range() might text beginning before 
 an <gi>app</gi>, encompassing the content of a single <gi>rdg</gi> and 
@@ -992,12 +995,13 @@ against a text stream relative to the node identified by the first parameter.
 REGEX is a reguar expression as defined by 
 <ref target="http://www.w3.org/TR/xpath-functions/#regex-syntax">XQuery 
 1.0 and XPath 2.0 Functions and Operators (Second Edition)</ref>, with one
-modification: because the regular expression is delimited by apostrophe characters,
-any such characters (<code>'</code> or <code>\u0027</code>) occurring inside the expression must be 
-escaped using a backslash character (<soCalled>Reverse Solidus</soCalled>, <code>\u005C</code>, or <code>\</code>).
-The optional INDEX parameter is an integer greater than 0 which specifies 
-which match should be chosen when there is more than one possibility.
-If omitted, the first match in the text stream will be used.</p>
+modification: because the regular expression is delimited by apostrophe 
+characters, any such characters (<code>'</code> or <code>\u0027</code>) 
+occurring inside the expression must be escaped using a the URI 
+percent-encoding scheme <code>%27</code>. The optional INDEX parameter 
+is an integer greater than 0 which specifies which match should be chosen 
+when there is more than one possibility. If omitted, the first match in the 
+text stream will be used.</p>
 <p>Like string-range(), match may capture elements in the returned 
 sequence, even though they are ignored for purposes of evaluating the 
 match.</p>
