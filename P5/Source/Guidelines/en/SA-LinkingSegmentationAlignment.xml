@@ -959,9 +959,9 @@ that node is a member of the addressed sequence. If a sequence addressed
 by a range pointer overlaps, but does not wholly contain, an element
 (i.e. it contains only the start but not the end tag or vice-versa),
 then that element is not part of the sequence. POINTER parameters to
-<name type="xpscheme">range()</name>are delimited using the semicolon 
+<name type="xpscheme">range()</name> are delimited using the semicolon 
 character instead of commas. If a semicolon occurs inside a POINTER,
-it must be escape using the URI percent-encoding <code>%3B</code>.</p>
+it must be escaped using the URI percent-encoding <code>%3B</code>.</p>
 <p><name type="xpscheme">Range()</name>s may address sequences of 
 non-contiguous nodes. For example, a range() might text beginning before 
 an <gi>app</gi>, encompassing the content of a single <gi>rdg</gi> and 
@@ -997,7 +997,7 @@ REGEX is a reguar expression as defined by
 1.0 and XPath 2.0 Functions and Operators (Second Edition)</ref>, with one
 modification: because the regular expression is delimited by apostrophe 
 characters, any such characters (<code>'</code> or <code>\u0027</code>) 
-occurring inside the expression must be escaped using a the URI 
+occurring inside the expression must be escaped using the URI 
 percent-encoding scheme <code>%27</code>. The optional INDEX parameter 
 is an integer greater than 0 which specifies which match should be chosen 
 when there is more than one possibility. If omitted, the first match in the 
