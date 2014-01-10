@@ -879,7 +879,8 @@ towards revising this draft or issuing it as a recommendation. </p>
 </div>
 
 <div type="div4" xml:id="SATSXP">
-<head>Sequence xpath(XPATH)</head>
+<head>xpath()</head>
+<p><code>Sequence xpath(XPATH)</code></p>
 <p>The <name type="xpscheme">xpath()</name> scheme locates a node
 within an XML Information Set. The single argument
 <rs>XPATH</rs> is an XPath path expression, following the latest 
@@ -919,7 +920,8 @@ recommended when possible.</p>
 </div>
 
 <div type="div4" xml:id="SATSL">
-<head><rs>Point</rs> left( IDREF | XPATH )</head>
+<head>left()</head>
+<p><code><rs>Point</rs> left( IDREF | XPATH )</code></p>
 <p>The <name type="xpscheme">left()</name> scheme locates the
 point immediately preceding the node addressed by its argument,
 which is either an <rs>XPATH</rs> as defined above or an
@@ -928,13 +930,15 @@ occurring in the document addressed by the base URI in effect
 for the pointer.</p></div>
 
 <div type="div4" xml:id="SATSR">
-<head><rs>Point</rs> right( IDREF | XPATH )</head>
+<head>right()</head>
+<p><code><rs>Point</rs> right( IDREF | XPATH )</code></p>
 <p>The <name type="xpscheme">right()</name> scheme locates the
 point immediately following the node addressed by its argument.</p>
 </div>
 
 <div type="div4" xml:id="SATSSI">
-<head><rs>Point</rs> string-index( IDREF | XPATH, OFFSET )</head>
+<head>string-index()</head>
+<p><code><rs>Point</rs> string-index( IDREF | XPATH, OFFSET )</code></p>
 <p>The <name type="xpscheme">string-index()</name> scheme locates a
 point with respect to the IDREF or XPATH parameter. The <rs>OFFSET</rs>
 parameter is a positive, negative, or zero integer which determines 
@@ -946,7 +950,8 @@ no text node descendants.</p>
 </div>
 
 <div type="div4" xml:id="SATSRN">
-<head><rs>Sequence</rs> range( POINTER; POINTER [POINTER; POINTER ...])</head>
+<head>range()</head>
+<p><code><rs>Sequence</rs> range( POINTER; POINTER [POINTER; POINTER ...])</code></p>
 <p>The <name type="xpscheme">range()</name> scheme takes as parameters one 
 or more pairs of <rs>POINTER</rs>s, which are each members of the set <rs>IDREF</rs>,
 <rs>XPATH</rs>, <name type="xpscheme">left()</name>, 
@@ -969,7 +974,8 @@ continuing after the <gi>app</gi>.</p>
 </div>
 
 <div type="div4" xml:id="SATSSR">
-<head><rs>Sequence</rs> string-range(IDREF | XPATH, OFFSET, LENGTH[, OFFSET, LENGTH ...])</head>
+<head>string-range()</head>
+<p><code><rs>Sequence</rs> string-range(IDREF | XPATH, OFFSET, LENGTH[, OFFSET, LENGTH ...])</code></p>
 <p>The string-range() scheme
 locates a sequence based on character positions in a text stream relative 
 to the node identified by the first parameter. The location of the 
@@ -989,7 +995,8 @@ the resulting sequence, but the LENGTH count will not increment when
 it is captured.</p>
 </div>
 <div type="div4" xml:id="SATSMA">
-<head><rs>Sequence</rs> match(IDREF | XPATH, REGEX [, INDEX])</head>
+<head>match()</head>
+<p><code><rs>Sequence</rs> match(IDREF | XPATH, 'REGEX' [, INDEX])</code></p>
 <p>The match scheme locates a sequence based on matching the REGEX parameter
 against a text stream relative to the node identified by the first parameter.
 REGEX is a reguar expression as defined by 
