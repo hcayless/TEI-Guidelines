@@ -998,7 +998,7 @@ it is captured.</p>
 <p><code><rs>Sequence</rs> match(IDREF | XPATH, 'REGEX' [, INDEX])</code></p>
 <p>The match scheme locates a sequence based on matching the REGEX parameter
 against a text stream relative to the node identified by the first parameter.
-REGEX is a reguar expression as defined by 
+REGEX is a regular expression as defined by 
 <ref target="http://www.w3.org/TR/xpath-functions/#regex-syntax">XQuery 
 1.0 and XPath 2.0 Functions and Operators (Second Edition)</ref>, with one
 modification: because the regular expression is delimited by apostrophe 
