@@ -769,7 +769,7 @@ chapter and elsewhere in these Guidelines. </p>
 <div type="div3" xml:id="SATS">
 <head>TEI XPointer Schemes</head>
 
-<p>The pointing scheme described in this chapter is one of a number of
+<p>The pointing schemes described in this chapter are part of a number of
 such schemes envisaged by the W3C, which together constitute a
 framework for addressing data within XML documents, known as the
 XPointer Framework (<ref target="#XPTRFMWK">Grosso et al
@@ -778,7 +778,7 @@ addressing methods, each of which is known as an <term>XPointer
 Scheme</term>. The W3C has predefined a set of such schemes, and
 maintains a register for their expansion. </p>
 
-<p>Another important scheme, also defined by the W3C, and recommended
+<p>One important scheme, also defined by the W3C, and recommended
 by these Guidelines is the <name type="xpscheme">xpath()</name> pointer
 scheme, which allows for any part of an XML structure to be selected
 using the syntax defined by the XPath specification. This is further
@@ -812,7 +812,7 @@ kinds of object:
 <list type="gloss">
 <label>Node</label>
 <item>A node is an instance of one of the node kinds defined in
-the <ref target="http://www.w3.org/TR/xpath20/#datamodel">XQuery 
+the <ref target="http://www.w3.org/TR/xpath-datamodel/">XQuery 
 1.0 and XPath 2.0 Data Model (Second Edition)</ref>. It represents 
 a single item in the XML information 	set for a document. For pointing
 purposes, the only nodes that are of interest are Text Nodes,
@@ -821,7 +821,7 @@ Element Nodes, and Attribute nodes.</item>
 <item>A Sequence follows the definition in the XPath 2.0 Data 
 Model, with one alteration. A Sequence is an ordered collection
 of zero or more items, where an item is either a node or a partial
-text node. An an XPointer sequence must consist of nodes, as defined 
+text node. An XPointer sequence must consist of nodes, as defined 
 above, except for the first and last items in the sequence, which may be 
 partial text nodes.
 </item>
@@ -834,15 +834,17 @@ encompass all of the text nodes beginning at a particular node, and following
 it on the <ref target="http://www.w3.org/TR/xpath20/#axes">following axis</ref>.
 </item>
 <label>Point</label>
-<item>A Point represents a dimensionless point between nodes in a document.
-Every point is adjacent to either characters or elements, and
+<item>A Point represents a dimensionless point between nodes or characters in 
+a document. Every point is adjacent to either characters or elements, and
 never to another point. Points can only be referenced in relation to an 
 element or text node in the document (i.e. something addressable by either 
 an XPath or a fragment identifier). Points occur either immediately before 
 or after an element, or at a numbered position inside a text stream. 
 Position zero in the stream would be immediately before the first character. 
-Note that points cannot occur within attributes, because they are a function 
-of document position and attribute nodes are by definition un-ordered. 
+Note that points within attribute values cannot mark the beginning or end of 
+a range extending beyond the attribute value, because points indicate a 
+position within a document. Since attribute nodes are by definition un-ordered, 
+they cannot be said to have a fixed position. 
 </item>
 </list>
 </p>
@@ -950,7 +952,7 @@ no text node descendants.</p>
 
 <div type="div4" xml:id="SATSRN">
 <head>range()</head>
-<p><code><rs>Sequence</rs> range( POINTER; POINTER [POINTER; POINTER ...])</code></p>
+<p><code><rs>Sequence</rs> range( POINTER, POINTER[, POINTER POINTER ...])</code></p>
 <p>The <name type="xpscheme">range()</name> scheme takes as parameters one 
 or more pairs of <rs>POINTER</rs>s, which are each members of the set <rs>IDREF</rs>,
 <rs>XPATH</rs>, <name type="xpscheme">left()</name>, 
@@ -967,9 +969,9 @@ then that element is not part of the sequence. POINTER parameters to
 character instead of commas. If a semicolon occurs inside a POINTER,
 it must be escaped using the URI percent-encoding <code>%3B</code>.</p>
 <p><name type="xpscheme">Range()</name>s may address sequences of 
-non-contiguous nodes. For example, a range() might text beginning before 
-an <gi>app</gi>, encompassing the content of a single <gi>rdg</gi> and 
-continuing after the <gi>app</gi>.</p>
+non-contiguous nodes. For example, a range() might select text beginning 
+before an <gi>app</gi>, encompassing the content of a single <gi>rdg</gi> 
+and continuing after the <gi>app</gi>.</p>
 </div>
 
 <div type="div4" xml:id="SATSSR">
@@ -979,8 +981,9 @@ continuing after the <gi>app</gi>.</p>
 locates a sequence based on character positions in a text stream relative 
 to the node identified by the first parameter. The location of the 
 beginning of the addressed sequence is determined precisely
-as for <name type="xpscheme">string-index()</name>. The 
-<rs>LENGTH</rs> parameter is a positive integer that denotes
+as for <name type="xpscheme">string-index()</name>. The <rs>OFFSET</rs>
+parameter is defined as above in <name type="xpscheme">string-index()</name>.
+The <rs>LENGTH</rs> parameter is a positive integer that denotes
 the length of the text stream captured by the sequence. As with 
 <name type="xpscheme">range()</name>, the addressed sequence may 
 contain text nodes and/or elements. The 
