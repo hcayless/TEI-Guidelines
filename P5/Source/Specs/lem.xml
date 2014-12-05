@@ -30,6 +30,8 @@ $Id$
     <rng:zeroOrMore xmlns:rng="http://relaxng.org/ns/structure/1.0">
       <rng:choice>
         <rng:text/>
+        <rng:ref name="model.divLike"/>
+        <rng:ref name="model.pLike"/>
         <rng:ref name="model.gLike"/>
         <rng:ref name="model.phrase"/>
         <rng:ref name="model.inter"/>
