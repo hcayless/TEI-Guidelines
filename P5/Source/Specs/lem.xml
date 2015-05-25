@@ -29,14 +29,10 @@ $Id$
   <content>
     <rng:zeroOrMore xmlns:rng="http://relaxng.org/ns/structure/1.0">
       <rng:choice>
-        <rng:text/>
-        <rng:ref name="model.divLike"/>
-        <rng:ref name="model.pLike"/>
-        <rng:ref name="model.gLike"/>
-        <rng:ref name="model.phrase"/>
-        <rng:ref name="model.inter"/>
-        <rng:ref name="model.global"/>
-        <rng:ref name="model.rdgPart"/>
+        <ref name="model.divLike"/>
+        <ref name="model.pLike"/>
+        <ref name="macro.paraContent"/>
+        <ref name="model.rdgPart"/>
       </rng:choice>
     </rng:zeroOrMore>
   </content>
