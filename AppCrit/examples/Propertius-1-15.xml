@@ -83,14 +83,15 @@
     <body>
       <div xml:space="preserve">
         <head>XV</head>
-         <l n="1">Saepe ego multa tuae leuitatis <app><lem>dura</lem><rdgGrp><rdg wit="#T">iura</rdg><rdg wit="#T">iure</rdg><wit>T has iura and iure above the line, instead of marked as variant readings.</wit></rdgGrp><rdg wit="#Ϛ">signa</rdg><rdg wit="#Ϛ">damna</rdg></app> timebam,</l>
-         <l n="2"><app><lem>hac</lem><rdg wit="#N">ac</rdg><wit>N omits the first letter of the second line, as usual; in F the word is added in the rubricator's hand</wit></app> tamen excepta, Cynthia, perfidia.</l>
-         <l n="3">aspice me <app><lem>quanto rapiat fortuna periclo</lem><rdg source="#Markland">quanta rapiat fortuna procella</rdg></app>:</l>
-         <l n="4">tu tamen in nostro lenta timore uenis,</l>
-         <l n="5">et potes <app><lem>hesternos</lem><rdg wit="#S">externos</rdg></app> <app><lem>manibus</lem><rdg source="#Fontein">acubus</rdg></app> componere crines</l>
-         <l n="6">et longa faciem <app><lem>quaerere desidia</lem><rdg wit="#A">quaere desidiam</rdg></app>,</l>
-         <l n="7">nec minus <app><lem wit="#T #K #Υ #C">Eois</lem><wit>Colucius apparently conjectured eois, T (perhaps corrected from cois), KYC</wit><rdg wit="#N #S #J #W">et cois</rdg><rdg wit="#A">haec cois</rdg></app> pectus uariare lapillis</l>
-         <app>
+        <ab>
+          <l n="1">Saepe ego multa tuae leuitatis <app><lem>dura</lem><rdgGrp><rdg wit="#T">iura</rdg><rdg wit="#T">iure</rdg><wit>T has iura and iure above the line, instead of marked as variant readings.</wit></rdgGrp><rdg wit="#Ϛ">signa</rdg><rdg wit="#Ϛ">damna</rdg></app> timebam,</l>
+          <l n="2"><app><lem>hac</lem><rdg wit="#N">ac</rdg><wit>N omits the first letter of the second line, as usual; in F the word is added in the rubricator's hand</wit></app> tamen excepta, Cynthia, perfidia.</l>
+          <l n="3">aspice me <app><lem>quanto rapiat fortuna periclo</lem><rdg source="#Markland">quanta rapiat fortuna procella</rdg></app>:</l>
+          <l n="4">tu tamen in nostro lenta timore uenis,</l>
+          <l n="5">et potes <app><lem>hesternos</lem><rdg wit="#S">externos</rdg></app> <app><lem>manibus</lem><rdg source="#Fontein">acubus</rdg></app> componere crines</l>
+          <l n="6">et longa faciem <app><lem>quaerere desidia</lem><rdg wit="#A">quaere desidiam</rdg></app>,</l>
+          <l n="7">nec minus <app><lem wit="#T #K #Υ #C">Eois</lem><wit>Colucius apparently conjectured eois, T (perhaps corrected from cois), KYC</wit><rdg wit="#N #S #J #W">et cois</rdg><rdg wit="#A">haec cois</rdg></app> pectus uariare lapillis</l>
+          <app>
             <lem>
                <l n="8"><app><lem wit="#N #Λ">ut</lem><rdg wit="#A">et</rdg><rdg source="#Nodell">ac</rdg><rdg resp="#ed" cert="low">quam</rdg><wit>perhaps</wit></app> formosa nouo quae parat ire uiro.</l>
                <l n="9"><app><lem>at</lem><rdg wit="#A">et</rdg></app> non sic, Ithaci digressu <app><lem>mota</lem><rdg source="#Graevius">immota</rdg></app>, Calypso</l>
@@ -98,52 +99,52 @@
                <l n="11">multos illa dies incomptis maesta capillis</l>
             </lem>
             <rdg wit="#C"/><wit>C omits lines 8-11 because of homoeoteleuton.</wit>
-         </app>
-         <l n="12">sederat, <app><lem>iniusto</lem><rdg source="#Giardina">infesto</rdg><wit>Giardina 2005</wit></app> <app><lem>multa</lem><rdg source="#Müller">uana</rdg><wit>Müller</wit></app> locuta salo,</l>
-         <l n="13">et quamuis numquam post haec uisura dolebat</l>
-         <l n="14">illa tamen longae conscia <app><lem>laetitiae</lem><rdg wit="#Ϛ">nequitiae</rdg></app>.</l><app><note>There should probably be no punctuation after uisura and tamen.</note></app>
-         <app xml:id="app-rdg-Pescani-l15-l16" exclude="#app-lem-l15-l16 #app-rdg-Markland-l15-l16 #app-rdg-Lachmann-l15-l16">
-           <rdg source="#Pescani">
+          </app>
+          <l n="12">sederat, <app><lem>iniusto</lem><rdg source="#Giardina">infesto</rdg><wit>Giardina 2005</wit></app> <app><lem>multa</lem><rdg source="#Müller">uana</rdg><wit>Müller</wit></app> locuta salo,</l>
+          <l n="13">et quamuis numquam post haec uisura dolebat</l>
+          <l n="14">illa tamen longae conscia <app><lem>laetitiae</lem><rdg wit="#Ϛ">nequitiae</rdg></app>.</l><app><note>There should probably be no punctuation after uisura and tamen.</note></app>
+          <app xml:id="app-rdg-Pescani-l15-l16" exclude="#app-lem-l15-l16 #app-rdg-Markland-l15-l16 #app-rdg-Lachmann-l15-l16">
+            <rdg source="#Pescani">
                <secl>
                   <l sameAs="#l15"/>
                   <l sameAs="#l16"/>
                </secl>
             </rdg><wit>Pescani secluded these lines.</wit>
-         </app>
-         <l n="17">nec sic Aesoniden rapientibus anxia uentis</l>
-         <app>
+          </app>
+          <l n="17">nec sic Aesoniden rapientibus anxia uentis</l>
+          <app>
             <lem><l n="18">Hypsipyle uacuo constitit in thalamo:</l></lem>
             <rdg wit="#J"/><wit>J omits line 18, because of homoearchon</wit>
-         </app>
-         <l n="19">Hypsipyle nullos post <app><lem source="#Burman">illum</lem><rdg wit="#Ω">illos</rdg></app> sensit amores,</l>
-         <l n="20">ut semel Haemonio tabuit hospitio.</l>
-         <app xml:id="app-rdg-Markland-l15-l16" exclude="#app-lem-l15-l16 #app-rdg-Pescani-l15-l16 #app-rdg-Lachmann-l15-l16">
+          </app>
+          <l n="19">Hypsipyle nullos post <app><lem source="#Burman">illum</lem><rdg wit="#Ω">illos</rdg></app> sensit amores,</l>
+          <l n="20">ut semel Haemonio tabuit hospitio.</l>
+          <app xml:id="app-rdg-Markland-l15-l16" exclude="#app-lem-l15-l16 #app-rdg-Pescani-l15-l16 #app-rdg-Lachmann-l15-l16">
             <rdg source="#Markland">
                <l sameAs="#l15"/>
                <l sameAs="#l16"/>
             </rdg>
             <wit>Markland put these lines after 20.</wit>
-         </app>
-         <l n="21">coniugis Evadne <app><lem>miseros</lem><rdg wit="Ϛ">seros</rdg><rdg source="#Francius">medios</rdg></app> <app><lem source="#Lachmann">ablata</lem><rdg wit="#Ω">elata</rdg><rdg wit="#Ϛ">delata</rdg><rdg source="#Peerlkamp">laetata</rdg></app> per ignis</l>
-         <l n="22">occidit, Argivae fama pudicitiae.</l>
-         <app xml:id="app-rdg-Lachmann-l15-l16" exclude="#app-lem-l15-l16 #app-rdg-Pescani-l15-l16 #app-rdg-Markland-l15-l16">
+          </app>
+          <l n="21">coniugis Evadne <app><lem>miseros</lem><rdg wit="Ϛ">seros</rdg><rdg source="#Francius">medios</rdg></app> <app><lem source="#Lachmann">ablata</lem><rdg wit="#Ω">elata</rdg><rdg wit="#Ϛ">delata</rdg><rdg source="#Peerlkamp">laetata</rdg></app> per ignis</l>
+          <l n="22">occidit, Argivae fama pudicitiae.</l>
+          <app xml:id="app-rdg-Lachmann-l15-l16" exclude="#app-lem-l15-l16 #app-rdg-Pescani-l15-l16 #app-rdg-Markland-l15-l16">
             <rdg source="#Lachmann">
                <l sameAs="#l15"/>
                <l sameAs="#l16"/>
             </rdg>
             <wit>Lachmann put these lines after 22.</wit>
-         </app>
-         <l n="23">quarum nulla tuos potuit convertere mores,</l>
-         <l n="24">tu <app><lem>quoque</lem><rdg wit="#A"><choice><abbr>q̊</abbr><expan>quo</expan></choice></rdg></app> uti fieres nobilis historia.</l>
-         <app xml:id="app-lem-l25-l26" exclude="#app-rdg-Housman-l25-26">
+          </app>
+          <l n="23">quarum nulla tuos potuit convertere mores,</l>
+          <l n="24">tu <app><lem>quoque</lem><rdg wit="#A"><choice><abbr>q̊</abbr><expan>quo</expan></choice></rdg></app> uti fieres nobilis historia.</l>
+          <app xml:id="app-lem-l25-l26" exclude="#app-rdg-Housman-l25-26">
             <lem>
                <l n="25" xml:id="l25">desine iam <app><lem>reuocare</lem><rdg source="#Francius">renouare</rdg></app> tuis periuria verbis,</l>
                <l n="26" xml:id="l26">Cynthia, et oblitos parce <app><lem>movere</lem><rdg source="#Passerat">monere</rdg></app> deos;</l>
             </lem>
            <wit>Heyworth does not move these lines. <ref target="#app-rdg-Housman-l25-26">Housman</ref> Put them after line 32.</wit>
-         </app>
-         <app>
-           <lem>
+          </app>
+          <app>
+            <lem>
               <l n="27">audax a <app><lem>nimium</lem><rdg source="#Lachmann">nimium et</rdg></app>, nostro dolitura periclo,</l>
               <l n="28"><app><lem>si</lem><rdg wit="#A">sed</rdg></app> <app><lem wit="#Λ">quid</lem><rdg wit="#N #A">quod</rdg></app> forte <app><lem>tibi</lem><rdg wit="Ϛ">mihi</rdg></app> durius inciderit!</l>
               <app>
@@ -162,27 +163,27 @@
                    </surplus>
                  </rdg><wit>Postgate considered these lines to be interpolated.</wit>
               </app>
-           </lem>
-           <rdg source="#Georg_" xml:id="rdg-Georg-l27-l32" exclude="#rdg-Postgate-l29-l32"/><wit>Georg, in an unpublished conjecture, would remove these lines.</wit>
-         </app>
-         <app xml:id="app-rdg-Housman-l25-26" exclude="#app-lem-l25-l26">
+            </lem>
+            <rdg source="#Georg_" xml:id="rdg-Georg-l27-l32" exclude="#rdg-Postgate-l29-l32"/><wit>Georg, in an unpublished conjecture, would remove these lines.</wit>
+          </app>
+          <app xml:id="app-rdg-Housman-l25-26" exclude="#app-lem-l25-l26">
             <rdg source="#Housman">
                <l sameAs="#l25"/>
                <l sameAs="#l26"/>
               <wit>Housman put these lines after 32.</wit>
             </rdg>
-         </app>
-         <l n="33"><app><lem source="#Madvig">tam</lem><rdg wit="#Ω">quam</rdg></app> <app><lem>tibi</lem><rdgGrp><rdg wit="#Ϛ">mihi</rdg><rdg wit="#Ϛ" cert="low">ei mihi</rdg></rdgGrp></app> ne uiles isti uideantur ocelli,</l>
-         <l n="34">per quos saepe mihi credita perfidia <app><lem>est</lem><rdg wit="#S"/><wit>Omitted by S.</wit></app>!</l>
-         <l n="35">hos tu iurabas, si <app><lem>quid</lem><rdg wit="#A">quod</rdg></app> mentita fuisses,</l>
-         <l n="36">ut tibi suppositis exciderent manibus:</l>
-         <l n="37">et contra magnum potes hos attollere Solem?</l>
-         <l n="38">nec tremis admissae conscia nequitiae?</l>
-         <l n="39"><app><lem>quis</lem><rdg wit="#Ϛ">quid</rdg><wit>Ϛ, perhaps correctly</wit></app> te cogebat <app><lem>multos</lem><rdg source="#Heinsius">fictos</rdg><rdg wit="#Ϛ">multo</rdg><rdgGrp source="#Liberman2002"><rdg>pulso</rdg><rdg>uerso</rdg></rdgGrp></app> pallere <app><lem>colores</lem><rdg wit="#Ϛ">colore</rdg></app></l>
-         <l n="40">et fletum invitis <app><lem>ducere</lem><wit>N prime prints ducere twice.</wit></app> luminibus?</l>
-         <l n="41">quis ego nunc pereo, similis <app><lem>moniturus</lem><rdg wit="#N">moriturus</rdg><wit>N prime</wit></app> amantes:</l>
-         <l n="42"><app><lem source="#Wyngaarden">non ullis</lem><rdg wit="#Ω">o nullis</rdg></app> tutum<app><lem/><rdg resp="ed"> est</rdg><wit>perhaps</wit></app> credere blanditiis!</l>
-         <app xml:id="app-lem-l15-l16" exclude="#app-rdg-Pescani-l15-l16 #app-rdg-Markland-l15-l16 #app-rdg-Lachmann-l15-l16">
+          </app>
+          <l n="33"><app><lem source="#Madvig">tam</lem><rdg wit="#Ω">quam</rdg></app> <app><lem>tibi</lem><rdgGrp><rdg wit="#Ϛ">mihi</rdg><rdg wit="#Ϛ" cert="low">ei mihi</rdg></rdgGrp></app> ne uiles isti uideantur ocelli,</l>
+          <l n="34">per quos saepe mihi credita perfidia <app><lem>est</lem><rdg wit="#S"/><wit>Omitted by S.</wit></app>!</l>
+          <l n="35">hos tu iurabas, si <app><lem>quid</lem><rdg wit="#A">quod</rdg></app> mentita fuisses,</l>
+          <l n="36">ut tibi suppositis exciderent manibus:</l>
+          <l n="37">et contra magnum potes hos attollere Solem?</l>
+          <l n="38">nec tremis admissae conscia nequitiae?</l>
+          <l n="39"><app><lem>quis</lem><rdg wit="#Ϛ">quid</rdg><wit>Ϛ, perhaps correctly</wit></app> te cogebat <app><lem>multos</lem><rdg source="#Heinsius">fictos</rdg><rdg wit="#Ϛ">multo</rdg><rdgGrp source="#Liberman2002"><rdg>pulso</rdg><rdg>uerso</rdg></rdgGrp></app> pallere <app><lem>colores</lem><rdg wit="#Ϛ">colore</rdg></app></l>
+          <l n="40">et fletum invitis <app><lem>ducere</lem><wit>N prime prints ducere twice.</wit></app> luminibus?</l>
+          <l n="41">quis ego nunc pereo, similis <app><lem>moniturus</lem><rdg wit="#N">moriturus</rdg><wit>N prime</wit></app> amantes:</l>
+          <l n="42"><app><lem source="#Wyngaarden">non ullis</lem><rdg wit="#Ω">o nullis</rdg></app> tutum<app><lem/><rdg resp="ed"> est</rdg><wit>perhaps</wit></app> credere blanditiis!</l>
+          <app xml:id="app-lem-l15-l16" exclude="#app-rdg-Pescani-l15-l16 #app-rdg-Markland-l15-l16 #app-rdg-Lachmann-l15-l16">
             <lem source="#Heyworth">
                <surplus reason="interpolation">
                   <l n="15" xml:id="l15">Alphesiboea suos ulta est pro coniuge fratres,</l>
@@ -190,7 +191,8 @@
                </surplus>
             </lem>
            <wit>Heyworth considers these lines to be an interpolation.</wit>
-         </app>
+          </app>
+        </ab>
          </div>
     </body>
   </text>
