@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="xslt/teibp.xsl"?>
-<?xml-model href="../schemas/p5.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<?xml-model href="http://hcayless.github.io/TEI-Guidelines/AppCrit/schemas/tei_all.rnc" type="application/relax-ng-compact-syntax"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:ca="http://www.tei-c.org/ns/CritApp/1.0">
   <teiHeader>
     <fileDesc>
