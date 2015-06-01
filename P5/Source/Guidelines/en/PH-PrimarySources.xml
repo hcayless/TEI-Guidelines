@@ -3105,6 +3105,7 @@ following ...-->
          <include xmlns="http://www.w3.org/2001/XInclude" href="../../Specs/substJoin.xml"/>
          <include xmlns="http://www.w3.org/2001/XInclude" href="../../Specs/supplied.xml"/>
          <include xmlns="http://www.w3.org/2001/XInclude" href="../../Specs/surplus.xml"/>
+        <include xmlns="http://www.w3.org/2001/XInclude" href="../../Specs/secl.xml"/>
          <include xmlns="http://www.w3.org/2001/XInclude" href="../../Specs/line.xml"/>
          <include xmlns="http://www.w3.org/2001/XInclude" href="../../Specs/listChange.xml"/>
          <include xmlns="http://www.w3.org/2001/XInclude" href="../../Specs/listTranspose.xml"/>
