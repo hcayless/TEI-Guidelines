@@ -3,10 +3,10 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2015-06-01T09:29:21Z. .
-TEI Edition: Version 2.8.1a. Last updated on
-	31st May 2015, revision 31635c9
-TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 2.8.1a./
+Schema generated from ODD source 2015-08-25T17:04:21Z. .
+TEI Edition: Version 2.8.0. Last updated on
+	6th April 2015, revision 13197
+TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 2.8.0/
   
 --><!--TEI material can be licensed differently depending on the use you intend to make of it. Hence it is made available under both the CC+BY and BSD-2 licences. The CC+BY licence is generally appropriate for usages which treat TEI content as data or documentation. The BSD-2 licence is generally appropriate for usage of TEI content in a software environment. For further information or clarification, please contact the TEI Consortium (info@tei-c.org).-->
    <define name="macro.paraContent">
@@ -595,19 +595,21 @@ belongs, but this <sch:name/> element has no textual content.</sch:assert>
    </define>
    <define name="att.fragmentable.attribute.part">
       <optional>
-         <attribute name="part">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies whether or not its parent element is fragmented in some way, typically by some other overlapping structure: for example a speech which is divided between two or more verse stanzas, a paragraph which is split across a page division, a verse line which is divided between two speakers.</a:documentation>
+         <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                    name="part"
+                    a:defaultValue="N">
+            <a:documentation>specifies whether or not its parent element is fragmented in some way, typically by some other overlapping structure: for example a speech which is divided between two or more verse stanzas, a paragraph which is split across a page division, a verse line which is divided between two speakers.</a:documentation>
             <choice>
                <value>Y</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(yes) the element is fragmented in some (unspecified) respect</a:documentation>
+               <a:documentation>(yes) the element is fragmented in some (unspecified) respect</a:documentation>
                <value>N</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(no) the element is not fragmented</a:documentation>
+               <a:documentation>(no) either the element is not fragmented, or no claim is made as to its completeness.</a:documentation>
                <value>I</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(initial) this is the initial part of a fragmented element</a:documentation>
+               <a:documentation>(initial) this is the initial part of a fragmented element</a:documentation>
                <value>M</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(medial) this is a medial part of a fragmented element</a:documentation>
+               <a:documentation>(medial) this is a medial part of a fragmented element</a:documentation>
                <value>F</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(final) this is the final part of a fragmented element</a:documentation>
+               <a:documentation>(final) this is the final part of a fragmented element</a:documentation>
             </choice>
          </attribute>
       </optional>
@@ -1195,7 +1197,7 @@ Suggested values include: 1] below; 2] bottom; 3] margin; 4] top; 5] opposite; 6
                 xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 context="tei:*[not(self::tei:schemaSpec)][@targetLang]">
-            <sch:assert test="@target">@targetLang should only be used on <sch:name/> if @target is specified.</sch:assert>
+            <sch:assert test="count(@target)">@targetLang can only be used if @target is specified.</sch:assert>
           </sch:rule>
    </pattern>
    <define name="att.pointing.attribute.target">
@@ -2171,12 +2173,12 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="add"/>
          <ref name="del"/>
          <ref name="unclear"/>
+         <ref name="app"/>
          <ref name="damage"/>
          <ref name="handShift"/>
          <ref name="restore"/>
          <ref name="supplied"/>
          <ref name="surplus"/>
-         <ref name="secl"/>
          <ref name="mod"/>
          <ref name="redo"/>
          <ref name="retrace"/>
@@ -2192,12 +2194,12 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="add"/>
          <ref name="del"/>
          <ref name="unclear"/>
+         <ref name="app"/>
          <ref name="damage"/>
          <ref name="handShift"/>
          <ref name="restore"/>
          <ref name="supplied"/>
          <ref name="surplus"/>
-         <ref name="secl"/>
          <ref name="mod"/>
          <ref name="redo"/>
          <ref name="retrace"/>
@@ -2212,12 +2214,12 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
       <ref name="add"/>
       <ref name="del"/>
       <ref name="unclear"/>
+      <ref name="app"/>
       <ref name="damage"/>
       <ref name="handShift"/>
       <ref name="restore"/>
       <ref name="supplied"/>
       <ref name="surplus"/>
-      <ref name="secl"/>
       <ref name="mod"/>
       <ref name="redo"/>
       <ref name="retrace"/>
@@ -2246,6 +2248,9 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="unclear"/>
       </optional>
       <optional>
+         <ref name="app"/>
+      </optional>
+      <optional>
          <ref name="damage"/>
       </optional>
       <optional>
@@ -2259,9 +2264,6 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
       </optional>
       <optional>
          <ref name="surplus"/>
-      </optional>
-      <optional>
-         <ref name="secl"/>
       </optional>
       <optional>
          <ref name="mod"/>
@@ -2299,6 +2301,9 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="unclear"/>
       </zeroOrMore>
       <zeroOrMore>
+         <ref name="app"/>
+      </zeroOrMore>
+      <zeroOrMore>
          <ref name="damage"/>
       </zeroOrMore>
       <zeroOrMore>
@@ -2312,9 +2317,6 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
       </zeroOrMore>
       <zeroOrMore>
          <ref name="surplus"/>
-      </zeroOrMore>
-      <zeroOrMore>
-         <ref name="secl"/>
       </zeroOrMore>
       <zeroOrMore>
          <ref name="mod"/>
@@ -2352,6 +2354,9 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="unclear"/>
       </oneOrMore>
       <oneOrMore>
+         <ref name="app"/>
+      </oneOrMore>
+      <oneOrMore>
          <ref name="damage"/>
       </oneOrMore>
       <oneOrMore>
@@ -2365,9 +2370,6 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
       </oneOrMore>
       <oneOrMore>
          <ref name="surplus"/>
-      </oneOrMore>
-      <oneOrMore>
-         <ref name="secl"/>
       </oneOrMore>
       <oneOrMore>
          <ref name="mod"/>
@@ -3083,7 +3085,6 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
    <define name="model.global.edit">
       <choice>
          <ref name="gap"/>
-         <ref name="app"/>
          <ref name="addSpan"/>
          <ref name="damageSpan"/>
          <ref name="delSpan"/>
@@ -5837,6 +5838,7 @@ Sample values include: 1] index; 2] toc; 3] figlist; 4] tablist</a:documentation
                <ref name="expan"/>
                <ref name="subst"/>
                <ref name="add"/>
+               <ref name="app"/>
                <ref name="corr"/>
                <ref name="damage"/>
                <ref name="del"/>
@@ -5847,7 +5849,6 @@ Sample values include: 1] index; 2] toc; 3] figlist; 4] tablist</a:documentation
                <ref name="reg"/>
                <ref name="restore"/>
                <ref name="retrace"/>
-               <ref name="secl"/>
                <ref name="sic"/>
                <ref name="supplied"/>
                <ref name="surplus"/>
@@ -11763,9 +11764,6 @@ Suggested values include: 1] paper; 2] parch(parchment) ; 3] mixed</a:documentat
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains information about the physical climate of a place. [13.3.4.3. States, Traits, and Events]</a:documentation>
          <group>
             <zeroOrMore>
-               <ref name="precision"/>
-            </zeroOrMore>
-            <zeroOrMore>
                <ref name="model.headLike"/>
             </zeroOrMore>
             <choice>
@@ -11899,17 +11897,12 @@ Suggested values include: 1] paper; 2] parch(parchment) ; 3] mixed</a:documentat
    <define name="langKnowledge">
       <element name="langKnowledge">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(language knowledge) summarizes the state of a person's linguistic knowledge, either as prose or by a list of langKnown elements. [13.3.2.1. Personal Characteristics]</a:documentation>
-         <group>
-            <zeroOrMore>
-               <ref name="precision"/>
-            </zeroOrMore>
-            <choice>
-               <ref name="model.pLike"/>
-               <oneOrMore>
-                  <ref name="langKnown"/>
-               </oneOrMore>
-            </choice>
-         </group>
+         <choice>
+            <ref name="model.pLike"/>
+            <oneOrMore>
+               <ref name="langKnown"/>
+            </oneOrMore>
+         </choice>
          <ref name="att.global.attributes"/>
          <ref name="att.datable.attributes"/>
          <ref name="att.editLike.attributes"/>
@@ -12059,7 +12052,6 @@ Suggested values include: 1] paper; 2] parch(parchment) ; 3] mixed</a:documentat
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">defines the location of a place as a set of geographical coordinates, in terms of other named geo-political entities, or as an address. [13.3.4. Places]</a:documentation>
          <zeroOrMore>
             <choice>
-               <ref name="precision"/>
                <ref name="model.labelLike"/>
                <ref name="model.placeNamePart"/>
                <ref name="model.offsetLike"/>
@@ -12331,9 +12323,6 @@ Suggested values include: 1] paper; 2] parch(parchment) ; 3] mixed</a:documentat
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains information about the population of a place. [13.3.4.3. States, Traits, and Events]</a:documentation>
          <group>
             <zeroOrMore>
-               <ref name="precision"/>
-            </zeroOrMore>
-            <zeroOrMore>
                <ref name="model.headLike"/>
             </zeroOrMore>
             <optional>
@@ -12501,39 +12490,34 @@ Suggested values include: 1] paper; 2] parch(parchment) ; 3] mixed</a:documentat
    <define name="state">
       <element name="state">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a description of some status or quality attributed to a person, place, or organization often at some specific time or for a specific date range. [13.3.1. Basic Principles 13.3.2.1. Personal Characteristics]</a:documentation>
-         <group>
-            <zeroOrMore>
-               <ref name="precision"/>
-            </zeroOrMore>
-            <choice>
+         <choice>
+            <oneOrMore>
+               <ref name="state"/>
+            </oneOrMore>
+            <group>
+               <zeroOrMore>
+                  <ref name="model.headLike"/>
+               </zeroOrMore>
                <oneOrMore>
-                  <ref name="state"/>
+                  <ref name="model.pLike"/>
                </oneOrMore>
-               <group>
-                  <zeroOrMore>
-                     <ref name="model.headLike"/>
-                  </zeroOrMore>
-                  <oneOrMore>
-                     <ref name="model.pLike"/>
-                  </oneOrMore>
-                  <zeroOrMore>
-                     <choice>
-                        <ref name="model.noteLike"/>
-                        <ref name="model.biblLike"/>
-                     </choice>
-                  </zeroOrMore>
-               </group>
-               <group>
-                  <zeroOrMore>
-                     <choice>
-                        <ref name="model.labelLike"/>
-                        <ref name="model.noteLike"/>
-                        <ref name="model.biblLike"/>
-                     </choice>
-                  </zeroOrMore>
-               </group>
-            </choice>
-         </group>
+               <zeroOrMore>
+                  <choice>
+                     <ref name="model.noteLike"/>
+                     <ref name="model.biblLike"/>
+                  </choice>
+               </zeroOrMore>
+            </group>
+            <group>
+               <zeroOrMore>
+                  <choice>
+                     <ref name="model.labelLike"/>
+                     <ref name="model.noteLike"/>
+                     <ref name="model.biblLike"/>
+                  </choice>
+               </zeroOrMore>
+            </group>
+         </choice>
          <ref name="att.global.attributes"/>
          <ref name="att.datable.attributes"/>
          <ref name="att.editLike.attributes"/>
@@ -12546,9 +12530,6 @@ Suggested values include: 1] paper; 2] parch(parchment) ; 3] mixed</a:documentat
       <element name="terrain">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains information about the physical terrain of a place. [13.3.4.3. States, Traits, and Events]</a:documentation>
          <group>
-            <zeroOrMore>
-               <ref name="precision"/>
-            </zeroOrMore>
             <zeroOrMore>
                <ref name="model.headLike"/>
             </zeroOrMore>
@@ -12585,39 +12566,34 @@ Suggested values include: 1] paper; 2] parch(parchment) ; 3] mixed</a:documentat
    <define name="trait">
       <element name="trait">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a description of some status or quality attributed to a person, place, or organization typically, but not necessarily, independent of the volition or action of the holder and usually not at some specific time or for a specific date range. [13.3.1. Basic Principles 13.3.2.1. Personal Characteristics]</a:documentation>
-         <group>
-            <zeroOrMore>
-               <ref name="precision"/>
-            </zeroOrMore>
-            <choice>
+         <choice>
+            <oneOrMore>
+               <ref name="trait"/>
+            </oneOrMore>
+            <group>
+               <zeroOrMore>
+                  <ref name="model.headLike"/>
+               </zeroOrMore>
                <oneOrMore>
-                  <ref name="trait"/>
+                  <ref name="model.pLike"/>
                </oneOrMore>
-               <group>
-                  <zeroOrMore>
-                     <ref name="model.headLike"/>
-                  </zeroOrMore>
-                  <oneOrMore>
-                     <ref name="model.pLike"/>
-                  </oneOrMore>
-                  <zeroOrMore>
-                     <choice>
-                        <ref name="model.noteLike"/>
-                        <ref name="model.biblLike"/>
-                     </choice>
-                  </zeroOrMore>
-               </group>
-               <group>
-                  <zeroOrMore>
-                     <choice>
-                        <ref name="model.labelLike"/>
-                        <ref name="model.noteLike"/>
-                        <ref name="model.biblLike"/>
-                     </choice>
-                  </zeroOrMore>
-               </group>
-            </choice>
-         </group>
+               <zeroOrMore>
+                  <choice>
+                     <ref name="model.noteLike"/>
+                     <ref name="model.biblLike"/>
+                  </choice>
+               </zeroOrMore>
+            </group>
+            <group>
+               <zeroOrMore>
+                  <choice>
+                     <ref name="model.labelLike"/>
+                     <ref name="model.noteLike"/>
+                     <ref name="model.biblLike"/>
+                  </choice>
+               </zeroOrMore>
+            </group>
+         </choice>
          <ref name="att.global.attributes"/>
          <ref name="att.datable.attributes"/>
          <ref name="att.editLike.attributes"/>
@@ -13624,14 +13600,10 @@ Sample values include: 1] homeoteleuton; 2] homeoarchy; 3] paleographicConfusion
          <zeroOrMore>
             <choice>
                <text/>
-               <ref name="model.divLike"/>
-               <ref name="model.pLike"/>
                <ref name="model.gLike"/>
                <ref name="model.phrase"/>
                <ref name="model.inter"/>
                <ref name="model.global"/>
-               <ref name="lg"/>
-               <ref name="l"/>
                <ref name="model.rdgPart"/>
             </choice>
          </zeroOrMore>
@@ -13647,14 +13619,10 @@ Sample values include: 1] homeoteleuton; 2] homeoarchy; 3] paleographicConfusion
          <zeroOrMore>
             <choice>
                <text/>
-               <ref name="model.divLike"/>
-               <ref name="model.pLike"/>
                <ref name="model.gLike"/>
                <ref name="model.phrase"/>
                <ref name="model.inter"/>
                <ref name="model.global"/>
-               <ref name="lg"/>
-               <ref name="l"/>
                <ref name="model.rdgPart"/>
             </choice>
          </zeroOrMore>
@@ -15490,25 +15458,6 @@ Sample values include: 1] header; 2] footer; 3] pageNum(page number) ; 4] lineNu
          <empty/>
       </element>
    </define>
-   <define name="secl">
-      <element name="secl">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Secluded. Marks text present in the source which the editor believes to be genuine but out of its original place (which is unknown). [11.3.3.1. Damage, Illegibility, and Supplied Text]</a:documentation>
-         <ref name="macro.paraContent"/>
-         <ref name="att.global.attributes"/>
-         <ref name="att.editLike.attributes"/>
-         <optional>
-            <attribute name="reason">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">one or more words indicating why this text has been secluded, e.g. interpolated etc.</a:documentation>
-               <list>
-                  <oneOrMore>
-                     <ref name="data.word"/>
-                  </oneOrMore>
-               </list>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
    <define name="line">
       <element name="line">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains the transcription of a topographic line in the source document [11.2.2. Embedded Transcription]</a:documentation>
@@ -16866,7 +16815,10 @@ Child elements of <name/> are only allowed when an external module is being load
                            xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                           test="tei:constraint/s:*  and  @scheme ne 'schematron'">Rules in the Schematron 1.* language must be inside a constraintSpec with a value of 'schematron' on the scheme attribute</sch:report>
+                           test="tei:constraint/s:* and    not(@scheme='schematron')">
+	Rules in the Schematron 1.* language must be inside
+	a constraintSpec with a value of 'schematron' on the scheme attribute
+      </sch:report>
             </rule>
          </pattern>
          <ns xmlns="http://purl.oclc.org/dsdl/schematron"
@@ -16879,20 +16831,10 @@ Child elements of <name/> are only allowed when an external module is being load
                            xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                           test="tei:constraint/sch:*  and  @scheme ne 'isoschematron'">Rules in the ISO Schematron language must be inside a constraintSpec with a value of 'isoschematron' on the scheme attribute</sch:report>
-            </rule>
-         </pattern>
-         <ns xmlns="http://purl.oclc.org/dsdl/schematron"
-             prefix="xsl"
-             uri="http://www.w3.org/1999/XSL/Transform"/>
-         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="tei_all-constraintSpec-xslt-constraint-23">
-            <rule context="tei:constraintSpec">
-               <sch:report xmlns:s="http://www.ascc.net/xml/schematron"
-                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                           xmlns="http://www.tei-c.org/ns/1.0"
-                           xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                           test="tei:constraint/xsl:*  and  @scheme ne 'XSLT'">Rules in XSLT must be inside a constraintSpec with a value of 'isoschematron' on the scheme attribute</sch:report>
+                           test="tei:constraint/sch:* and    not(@scheme='isoschematron')">
+	Rules in the ISO Schematron language must be inside
+	a constraintSpec with a value of 'isoschematron' on the scheme attribute
+      </sch:report>
             </rule>
          </pattern>
          <ns xmlns="http://purl.oclc.org/dsdl/schematron"
